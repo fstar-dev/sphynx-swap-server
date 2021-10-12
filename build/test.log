@@ -136,3 +136,15 @@
 2021-02-08 15:41:28 INFO swapPairInstanceDaemon found 1 confirmed swapPairSM pair register requests
 2021-02-08 15:41:28 INFO swapPairInstanceDaemon do swapPairSM, erc20 address 0x163c0D803a2ed7ab3F9FBDDFc15315F3F002E5DF, symbol BTC
 2021-02-08 15:41:30 ERROR func2 do swapPairSM failed: UNIQUE constraint failed: swap_pair_creat_tx.swap_pair_register_tx_hash, start hash 0x35d2c477d03ff14390c06c46763c0a97d1ae819dd0b9b46df2d7b27872753c79
+2021-10-08 16:48:23 INFO swapInstanceDaemon start swap daemon, direction eth_bsc
+2021-10-08 16:48:23 INFO swapInstanceDaemon start swap daemon, direction bsc_eth
+2021-10-08 16:48:23 INFO Serve start admin server at :8000
+2021-10-11 01:44:41 INFO swapInstanceDaemon start swap daemon, direction eth_bsc
+2021-10-11 01:44:41 INFO swapInstanceDaemon start swap daemon, direction bsc_eth
+2021-10-11 01:44:41 INFO Serve start admin server at :8000
+2021-10-11 12:17:54 INFO swapInstanceDaemon start swap daemon, direction eth_bsc
+2021-10-11 12:17:54 INFO swapInstanceDaemon start swap daemon, direction bsc_eth
+2021-10-11 12:17:56 INFO Serve start admin server at :8000
+2021-10-12 01:52:29 INFO swapInstanceDaemon start swap daemon, direction eth_bsc
+2021-10-12 01:52:29 INFO swapInstanceDaemon start swap daemon, direction bsc_eth
+2021-10-12 01:52:30 INFO Serve start admin server at :8000
