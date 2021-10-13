@@ -17,10 +17,10 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/jinzhu/gorm"
 
-	sabi "github.com/binance-chain/bsc-eth-swap/abi"
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	sabi "github.com/fstar-dev/sphynx-swap-server/abi"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 // NewSwapEngine returns the swapEngine instance

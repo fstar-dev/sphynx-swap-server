@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
+	"github.com/fstar-dev/sphynx-swap-server/common"
 )
 
 // Signer signs provided payloads.

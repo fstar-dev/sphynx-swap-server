@@ -1,4 +1,4 @@
-module github.com/binance-chain/bsc-eth-swap
+module github.com/fstar-dev/sphynx-swap-server
 
 go 1.14
 

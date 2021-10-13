@@ -13,10 +13,10 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/swap"
-	"github.com/binance-chain/bsc-eth-swap/util"
-	cmm "github.com/binance-chain/bsc-eth-swap/common"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/swap"
+	"github.com/fstar-dev/sphynx-swap-server/util"
+	cmm "github.com/fstar-dev/sphynx-swap-server/common"
 )
 
 const (

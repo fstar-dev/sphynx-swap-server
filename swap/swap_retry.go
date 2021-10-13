@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	sabi "github.com/binance-chain/bsc-eth-swap/abi"
+	sabi "github.com/fstar-dev/sphynx-swap-server/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/core"
 
@@ -20,9 +20,9 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/jinzhu/gorm"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 func (engine *SwapEngine) getRetrySwapHMAC(retrySwap *model.RetrySwap) string {

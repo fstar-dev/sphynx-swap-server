@@ -6,10 +6,10 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/executor"
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/executor"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 type Observer struct {

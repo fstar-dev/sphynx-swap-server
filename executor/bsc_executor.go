@@ -12,10 +12,10 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	agent "github.com/binance-chain/bsc-eth-swap/abi"
-	contractabi "github.com/binance-chain/bsc-eth-swap/abi"
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	agent "github.com/fstar-dev/sphynx-swap-server/abi"
+	contractabi "github.com/fstar-dev/sphynx-swap-server/abi"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 type BscExecutor struct {

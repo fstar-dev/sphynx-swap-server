@@ -18,10 +18,10 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	sabi "github.com/binance-chain/bsc-eth-swap/abi"
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	sabi "github.com/fstar-dev/sphynx-swap-server/abi"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 func NewSwapPairEngine(db *gorm.DB, cfg *util.Config, bscClient *ethclient.Client, swapEngine *SwapEngine) (*SwapPairEngine, error) {

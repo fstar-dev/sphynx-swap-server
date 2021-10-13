@@ -7,7 +7,7 @@ import (
 
 	ethcom "github.com/ethereum/go-ethereum/common"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
+	"github.com/fstar-dev/sphynx-swap-server/common"
 )
 
 type Config struct {

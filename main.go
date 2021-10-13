@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/binance-chain/bsc-eth-swap/admin"
+	"github.com/fstar-dev/sphynx-swap-server/admin"
 
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/jinzhu/gorm"
@@ -13,11 +13,11 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 
-	"github.com/binance-chain/bsc-eth-swap/executor"
-	"github.com/binance-chain/bsc-eth-swap/model"
-	"github.com/binance-chain/bsc-eth-swap/observer"
-	"github.com/binance-chain/bsc-eth-swap/swap"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	"github.com/fstar-dev/sphynx-swap-server/executor"
+	"github.com/fstar-dev/sphynx-swap-server/model"
+	"github.com/fstar-dev/sphynx-swap-server/observer"
+	"github.com/fstar-dev/sphynx-swap-server/swap"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 const (

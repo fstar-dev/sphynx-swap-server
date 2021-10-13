@@ -5,7 +5,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
+	"github.com/fstar-dev/sphynx-swap-server/common"
 )
 
 type SwapStartTxLog struct {

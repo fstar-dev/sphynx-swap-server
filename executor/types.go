@@ -1,13 +1,13 @@
 package executor
 
 import (
-	common "github.com/binance-chain/bsc-eth-swap/common"
+	common "github.com/fstar-dev/sphynx-swap-server/common"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	ethcmm "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"math/big"
 
-	"github.com/binance-chain/bsc-eth-swap/model"
+	"github.com/fstar-dev/sphynx-swap-server/model"
 )
 
 type Executor interface {

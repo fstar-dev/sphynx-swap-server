@@ -11,8 +11,8 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/jinzhu/gorm"
 
-	"github.com/binance-chain/bsc-eth-swap/common"
-	"github.com/binance-chain/bsc-eth-swap/util"
+	"github.com/fstar-dev/sphynx-swap-server/common"
+	"github.com/fstar-dev/sphynx-swap-server/util"
 )
 
 const (
