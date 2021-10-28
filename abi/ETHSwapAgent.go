@@ -28,7 +28,7 @@ var (
 )
 
 // ETHSwapAgentABI is the input ABI used to generate the binding from.
-const ETHSwapAgentABI = "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"bscTxHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"toAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"SwapFilled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sponsor\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\"}],\"name\":\"SwapPairRegister\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fromAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SwapStarted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"filledBSCTx\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\",\"constant\":true},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\",\"constant\":true},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"registeredERC20\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\",\"constant\":true},{\"inputs\":[],\"name\":\"swapFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\",\"constant\":true},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"setSwapFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"}],\"name\":\"registerSwapPairToBSC\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"bscTxHash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"fillBSC2ETHSwap\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"swapETH2BSC\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\",\"payable\":true}]"
+const ETHSwapAgentABI = "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"bscTxHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"toAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"SphynxSwapFilled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sponsor\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bep20Addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\"}],\"name\":\"SphynxSwapPairRegister\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fromAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SphynxSwapStarted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"filledBSCTx\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"registeredERC20\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"swapFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"setSwapFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bep20Addr\",\"type\":\"address\"}],\"name\":\"registerSwapPairToBSC\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"bscTxHash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"fillBSC2ETHSwap\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc20Addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"swapETH2BSC\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}]"
 
 // ETHSwapAgent is an auto generated Go binding around an Ethereum contract.
 type ETHSwapAgent struct {
@@ -575,7 +575,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) ParseOwnershipTransferred(log types.L
 	return event, nil
 }
 
-// ETHSwapAgentSwapFilledIterator is returned from FilterSwapFilled and is used to iterate over the raw logs and unpacked data for SwapFilled events raised by the ETHSwapAgent contract.
+// ETHSwapAgentSwapFilledIterator is returned from FilterSwapFilled and is used to iterate over the raw logs and unpacked data for SphynxSwapFilled events raised by the ETHSwapAgent contract.
 type ETHSwapAgentSwapFilledIterator struct {
 	Event *ETHSwapAgentSwapFilled // Event containing the contract specifics and raw log
 
@@ -642,7 +642,7 @@ func (it *ETHSwapAgentSwapFilledIterator) Close() error {
 	return nil
 }
 
-// ETHSwapAgentSwapFilled represents a SwapFilled event raised by the ETHSwapAgent contract.
+// ETHSwapAgentSwapFilled represents a SphynxSwapFilled event raised by the ETHSwapAgent contract.
 type ETHSwapAgentSwapFilled struct {
 	Erc20Addr common.Address
 	BscTxHash [32]byte
@@ -653,7 +653,7 @@ type ETHSwapAgentSwapFilled struct {
 
 // FilterSwapFilled is a free log retrieval operation binding the contract event 0x3bebd9a738291e69898b5dbfadb6329b4b09fc648bdef68762928e521463abd9.
 //
-// Solidity: event SwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
+// Solidity: event SphynxSwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
 func (_ETHSwapAgent *ETHSwapAgentFilterer) FilterSwapFilled(opts *bind.FilterOpts, erc20Addr []common.Address, bscTxHash [][32]byte, toAddress []common.Address) (*ETHSwapAgentSwapFilledIterator, error) {
 
 	var erc20AddrRule []interface{}
@@ -669,16 +669,16 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) FilterSwapFilled(opts *bind.FilterOpt
 		toAddressRule = append(toAddressRule, toAddressItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SwapFilled", erc20AddrRule, bscTxHashRule, toAddressRule)
+	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SphynxSwapFilled", erc20AddrRule, bscTxHashRule, toAddressRule)
 	if err != nil {
 		return nil, err
 	}
-	return &ETHSwapAgentSwapFilledIterator{contract: _ETHSwapAgent.contract, event: "SwapFilled", logs: logs, sub: sub}, nil
+	return &ETHSwapAgentSwapFilledIterator{contract: _ETHSwapAgent.contract, event: "SphynxSwapFilled", logs: logs, sub: sub}, nil
 }
 
 // WatchSwapFilled is a free log subscription operation binding the contract event 0x3bebd9a738291e69898b5dbfadb6329b4b09fc648bdef68762928e521463abd9.
 //
-// Solidity: event SwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
+// Solidity: event SphynxSwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
 func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapFilled(opts *bind.WatchOpts, sink chan<- *ETHSwapAgentSwapFilled, erc20Addr []common.Address, bscTxHash [][32]byte, toAddress []common.Address) (event.Subscription, error) {
 
 	var erc20AddrRule []interface{}
@@ -694,7 +694,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapFilled(opts *bind.WatchOpts,
 		toAddressRule = append(toAddressRule, toAddressItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SwapFilled", erc20AddrRule, bscTxHashRule, toAddressRule)
+	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SphynxSwapFilled", erc20AddrRule, bscTxHashRule, toAddressRule)
 	if err != nil {
 		return nil, err
 	}
@@ -705,7 +705,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapFilled(opts *bind.WatchOpts,
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
 				event := new(ETHSwapAgentSwapFilled)
-				if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapFilled", log); err != nil {
+				if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapFilled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -728,10 +728,10 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapFilled(opts *bind.WatchOpts,
 
 // ParseSwapFilled is a log parse operation binding the contract event 0x3bebd9a738291e69898b5dbfadb6329b4b09fc648bdef68762928e521463abd9.
 //
-// Solidity: event SwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
+// Solidity: event SphynxSwapFilled(address indexed erc20Addr, bytes32 indexed bscTxHash, address indexed toAddress, uint256 amount)
 func (_ETHSwapAgent *ETHSwapAgentFilterer) ParseSwapFilled(log types.Log) (*ETHSwapAgentSwapFilled, error) {
 	event := new(ETHSwapAgentSwapFilled)
-	if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapFilled", log); err != nil {
+	if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapFilled", log); err != nil {
 		return nil, err
 	}
 	return event, nil
@@ -828,11 +828,11 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) FilterSwapPairRegister(opts *bind.Fil
 		erc20AddrRule = append(erc20AddrRule, erc20AddrItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SwapPairRegister", sponsorRule, erc20AddrRule)
+	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SpynxSwapPairRegister", sponsorRule, erc20AddrRule)
 	if err != nil {
 		return nil, err
 	}
-	return &ETHSwapAgentSwapPairRegisterIterator{contract: _ETHSwapAgent.contract, event: "SwapPairRegister", logs: logs, sub: sub}, nil
+	return &ETHSwapAgentSwapPairRegisterIterator{contract: _ETHSwapAgent.contract, event: "SpynxSwapPairRegister", logs: logs, sub: sub}, nil
 }
 
 // WatchSwapPairRegister is a free log subscription operation binding the contract event 0xfe3bd005e346323fa452df8cafc28c55b99e3766ba8750571d139c6cf5bc08a0.
@@ -849,7 +849,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapPairRegister(opts *bind.Watc
 		erc20AddrRule = append(erc20AddrRule, erc20AddrItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SwapPairRegister", sponsorRule, erc20AddrRule)
+	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SphynxSwapPairRegister", sponsorRule, erc20AddrRule)
 	if err != nil {
 		return nil, err
 	}
@@ -860,7 +860,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapPairRegister(opts *bind.Watc
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
 				event := new(ETHSwapAgentSwapPairRegister)
-				if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapPairRegister", log); err != nil {
+				if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapPairRegister", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -886,7 +886,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapPairRegister(opts *bind.Watc
 // Solidity: event SwapPairRegister(address indexed sponsor, address indexed erc20Addr, string name, string symbol, uint8 decimals)
 func (_ETHSwapAgent *ETHSwapAgentFilterer) ParseSwapPairRegister(log types.Log) (*ETHSwapAgentSwapPairRegister, error) {
 	event := new(ETHSwapAgentSwapPairRegister)
-	if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapPairRegister", log); err != nil {
+	if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapPairRegister", log); err != nil {
 		return nil, err
 	}
 	return event, nil
@@ -982,11 +982,11 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) FilterSwapStarted(opts *bind.FilterOp
 		fromAddrRule = append(fromAddrRule, fromAddrItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SwapStarted", erc20AddrRule, fromAddrRule)
+	logs, sub, err := _ETHSwapAgent.contract.FilterLogs(opts, "SphynxSwapStarted", erc20AddrRule, fromAddrRule)
 	if err != nil {
 		return nil, err
 	}
-	return &ETHSwapAgentSwapStartedIterator{contract: _ETHSwapAgent.contract, event: "SwapStarted", logs: logs, sub: sub}, nil
+	return &ETHSwapAgentSwapStartedIterator{contract: _ETHSwapAgent.contract, event: "SphynxSwapStarted", logs: logs, sub: sub}, nil
 }
 
 // WatchSwapStarted is a free log subscription operation binding the contract event 0xf60309f865a6aa297da5fac6188136a02e5acfdf6e8f6d35257a9f4e9653170f.
@@ -1003,7 +1003,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapStarted(opts *bind.WatchOpts
 		fromAddrRule = append(fromAddrRule, fromAddrItem)
 	}
 
-	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SwapStarted", erc20AddrRule, fromAddrRule)
+	logs, sub, err := _ETHSwapAgent.contract.WatchLogs(opts, "SphynxSwapStarted", erc20AddrRule, fromAddrRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1014,7 +1014,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapStarted(opts *bind.WatchOpts
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
 				event := new(ETHSwapAgentSwapStarted)
-				if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapStarted", log); err != nil {
+				if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapStarted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1040,7 +1040,7 @@ func (_ETHSwapAgent *ETHSwapAgentFilterer) WatchSwapStarted(opts *bind.WatchOpts
 // Solidity: event SwapStarted(address indexed erc20Addr, address indexed fromAddr, uint256 amount, uint256 feeAmount)
 func (_ETHSwapAgent *ETHSwapAgentFilterer) ParseSwapStarted(log types.Log) (*ETHSwapAgentSwapStarted, error) {
 	event := new(ETHSwapAgentSwapStarted)
-	if err := _ETHSwapAgent.contract.UnpackLog(event, "SwapStarted", log); err != nil {
+	if err := _ETHSwapAgent.contract.UnpackLog(event, "SphynxSwapStarted", log); err != nil {
 		return nil, err
 	}
 	return event, nil

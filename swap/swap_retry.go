@@ -440,8 +440,8 @@ func (engine *SwapEngine) trackRetrySwapTxDaemon() {
 					return tx.Commit().Error
 				}()
 				if writeDBErr != nil {
-					util.Logger.Errorf("update db failure: %s", writeDBErr.Error())
-					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure: %s", writeDBErr.Error()))
+					util.Logger.Errorf("update db failure2: %s", writeDBErr.Error())
+					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure2: %s", writeDBErr.Error()))
 				}
 			}
 		}

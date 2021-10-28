@@ -106,12 +106,13 @@ func (engine *SwapPairEngine) createSwapPairSM(txEventLog *model.SwapPairRegiste
 	swapPairRegisterTxHash := txEventLog.TxHash
 
 	ethContractAddr := ethcom.HexToAddress(txEventLog.ERC20Addr)
+	bscContractAddr := ethcom.HexToAddress(txEventLog.BEP20Addr)
 	swapPairStatus := SwapPairReceived
 	// TODO, duplicate check
 	swapSM := &model.SwapPairStateMachine{
 		Status:    swapPairStatus,
 		ERC20Addr: ethContractAddr.String(),
-		BEP20Addr: "",
+		BEP20Addr: bscContractAddr.String(),
 		Sponsor:   txEventLog.Sponsor,
 		Symbol:    txEventLog.Symbol,
 		Name:      txEventLog.Name,
@@ -338,7 +339,7 @@ func (engine *SwapPairEngine) doCreateSwapPair(swapPairSM *model.SwapPairStateMa
 
 	bscClientMutex.Lock()
 	defer bscClientMutex.Unlock()
-	data, err := abiEncodeCreateSwapPair(ethcom.HexToHash(swapPairSM.PairRegisterTxHash), ethcom.HexToAddress(swapPairSM.ERC20Addr), swapPairSM.Name, swapPairSM.Symbol, uint8(swapPairSM.Decimals), engine.bscSwapAgentABi)
+	data, err := abiEncodeCreateSwapPair(ethcom.HexToHash(swapPairSM.PairRegisterTxHash), ethcom.HexToAddress(swapPairSM.ERC20Addr), ethcom.HexToAddress(swapPairSM.BEP20Addr),swapPairSM.Name, swapPairSM.Symbol, uint8(swapPairSM.Decimals), engine.bscSwapAgentABi)
 	if err != nil {
 		return nil, err
 	}
@@ -350,6 +351,7 @@ func (engine *SwapPairEngine) doCreateSwapPair(swapPairSM *model.SwapPairStateMa
 		SwapPairRegisterTxHash: swapPairSM.PairRegisterTxHash,
 		SwapPairCreatTxHash:    signedTx.Hash().String(),
 		ERC20Addr:              swapPairSM.ERC20Addr,
+		BEP20Addr:              swapPairSM.BEP20Addr,
 		Symbol:                 swapPairSM.Symbol,
 		Name:                   swapPairSM.Name,
 		Decimals:               swapPairSM.Decimals,
@@ -474,6 +476,7 @@ func (engine *SwapPairEngine) trackSwapPairTxDaemon() {
 					if err := tx.Error; err != nil {
 						return err
 					}
+					util.Logger.Errorf("update db step1:")
 					if queryTxStatusErr != nil {
 						tx.Model(model.SwapPairCreatTx{}).Where("id = ?", swapPairTx.ID).Updates(
 							map[string]interface{}{
@@ -494,6 +497,7 @@ func (engine *SwapPairEngine) trackSwapPairTxDaemon() {
 								})
 
 							swapPairSM, err := engine.getSwapPairSMByRegisterTxHash(tx, swapPairTx.SwapPairRegisterTxHash)
+							util.Logger.Errorf("update db step2:")
 							if err != nil {
 								tx.Rollback()
 								return err
@@ -507,6 +511,8 @@ func (engine *SwapPairEngine) trackSwapPairTxDaemon() {
 								ethcom.HexToAddress(engine.config.ChainConfig.BSCSwapAgentAddr),
 								txRecipient,
 								engine.bscClient)
+							util.Logger.Errorf("update db step3:")
+
 							if err != nil {
 								tx.Rollback()
 								return err
@@ -520,6 +526,7 @@ func (engine *SwapPairEngine) trackSwapPairTxDaemon() {
 								})
 
 							swapPairSM, err := engine.getSwapPairSMByRegisterTxHash(tx, swapPairTx.SwapPairRegisterTxHash)
+							util.Logger.Errorf("update db step4:")
 							if err != nil {
 								tx.Rollback()
 								return err
@@ -530,10 +537,11 @@ func (engine *SwapPairEngine) trackSwapPairTxDaemon() {
 						}
 					}
 					return tx.Commit().Error
+					
 				}()
 				if writeDBErr != nil {
-					util.Logger.Errorf("update db failure: %s", writeDBErr.Error())
-					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure: %s", writeDBErr.Error()))
+					util.Logger.Errorf("update db failure1: %s", writeDBErr.Error())
+					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure1: %s", writeDBErr.Error()))
 				}
 
 			}

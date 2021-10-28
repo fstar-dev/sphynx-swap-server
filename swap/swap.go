@@ -120,12 +120,12 @@ func (engine *SwapEngine) monitorSwapRequestDaemon() {
 			writeDBErr := func() error {
 				tx := engine.db.Begin()
 				if err := tx.Error; err != nil {
-					return err
+						return err
 				}
 				if err := engine.insertSwap(tx, swap); err != nil {
 					tx.Rollback()
 					return err
-				}
+				}	
 				tx.Model(model.SwapStartTxLog{}).Where("tx_hash = ?", swap.StartTxHash).Updates(
 					map[string]interface{}{
 						"phase":       model.ConfirmRequest,
@@ -654,8 +654,8 @@ func (engine *SwapEngine) trackSwapTxDaemon() {
 					return tx.Commit().Error
 				}()
 				if writeDBErr != nil {
-					util.Logger.Errorf("update db failure: %s", writeDBErr.Error())
-					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure: %s", writeDBErr.Error()))
+					util.Logger.Errorf("update db failure3: %s", writeDBErr.Error())
+					util.SendTelegramMessage(fmt.Sprintf("Upgent alert: update db failure3: %s", writeDBErr.Error()))
 				}
 
 			}

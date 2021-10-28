@@ -57,7 +57,7 @@
         "type": "uint256"
       }
     ],
-    "name": "SwapFilled",
+    "name": "SphynxSwapFilled",
     "type": "event"
   },
   {
@@ -73,6 +73,12 @@
         "indexed": true,
         "internalType": "address",
         "name": "erc20Addr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "bep20Addr",
         "type": "address"
       },
       {
@@ -94,7 +100,7 @@
         "type": "uint8"
       }
     ],
-    "name": "SwapPairRegister",
+    "name": "SphynxSwapPairRegister",
     "type": "event"
   },
   {
@@ -125,7 +131,7 @@
         "type": "uint256"
       }
     ],
-    "name": "SwapStarted",
+    "name": "SphynxSwapStarted",
     "type": "event"
   },
   {
@@ -145,8 +151,7 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
@@ -159,8 +164,7 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [
@@ -179,8 +183,7 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
@@ -193,8 +196,7 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
@@ -234,6 +236,11 @@
       {
         "internalType": "address",
         "name": "erc20Addr",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "bep20Addr",
         "type": "address"
       }
     ],
@@ -304,7 +311,6 @@
       }
     ],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "type": "function"
   }
 ]

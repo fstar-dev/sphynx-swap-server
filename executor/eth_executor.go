@@ -121,8 +121,8 @@ func (e *EthExecutor) GetSwapPairRegisterLogs(header *types.Header) ([]interface
 
 		eventModel := event.ToSwapPairRegisterLog(&log)
 		eventModel.Chain = e.Chain
-		util.Logger.Debugf("Found register event, erc20 address: %d, name: %s, symbol: %s, decimals: %d",
-			eventModel.ERC20Addr, eventModel.Name, eventModel.Symbol, eventModel.Decimals)
+		util.Logger.Debugf("Found register event, erc20 address: %d, bep20 address: %d, name: %s, symbol: %s, decimals: %d",
+			eventModel.ERC20Addr, eventModel.BEP20Addr ,eventModel.Name, eventModel.Symbol, eventModel.Decimals)
 		eventModels = append(eventModels, eventModel)
 	}
 	return eventModels, nil

@@ -17,9 +17,9 @@ type Executor interface {
 
 // ===================  SwapStarted =============
 var (
-	SwapStartedEventName        = "SwapStarted"
-	ETH2BSCSwapStartedEventHash = ethcmm.HexToHash("0xf60309f865a6aa297da5fac6188136a02e5acfdf6e8f6d35257a9f4e9653170f")
-	BSC2ETHSwapStartedEventHash = ethcmm.HexToHash("0x49c08ff11118922c1e8298915531eff9ef6f8b39b44b3e9952b75d47e1d0cdd0")
+	SwapStartedEventName        = "SphynxSwapStarted"
+	ETH2BSCSwapStartedEventHash = ethcmm.HexToHash("0x833cb5872c808322e8666b65ac48146042bc300435300238bb929b559b9e1f6a")
+	BSC2ETHSwapStartedEventHash = ethcmm.HexToHash("0xfc1a6eab912bd888ec0f7a92e1ee241615ab5e87aadc94db8c334a17efaae97d")
 )
 
 type ETH2BSCSwapStartedEvent struct {
@@ -95,15 +95,16 @@ func ParseBSC2ETHSwapStartEvent(abi *abi.ABI, log *types.Log) (*BSC2ETHSwapStart
 }
 
 
-// =================  SwapPairRegister ===================
+// =================  SphynxSwapPairRegister ===================
 var (
-	SwapPairRegisterEventName = "SwapPairRegister"
-	SwapPairRegisterEventHash = ethcmm.HexToHash("0xfe3bd005e346323fa452df8cafc28c55b99e3766ba8750571d139c6cf5bc08a0")
+	SwapPairRegisterEventName = "SphynxSwapPairRegister"
+	SwapPairRegisterEventHash = ethcmm.HexToHash("0x06101386f3a9dd45570dce2027311173d0e136955e5b912edece89cca5bb526d")
 )
 
 type SwapPairRegisterEvent struct {
 	Sponsor      ethcmm.Address
 	ContractAddr ethcmm.Address
+	BEP20ContractAddr 	 ethcmm.Address
 	Name         string
 	Symbol       string
 	Decimals     uint8
@@ -112,6 +113,7 @@ type SwapPairRegisterEvent struct {
 func (ev *SwapPairRegisterEvent) ToSwapPairRegisterLog(log *types.Log) *model.SwapPairRegisterTxLog {
 	pack := &model.SwapPairRegisterTxLog{
 		ERC20Addr: ev.ContractAddr.String(),
+		BEP20Addr: ev.BEP20ContractAddr.String(),
 		Sponsor:   ev.Sponsor.String(),
 		Symbol:    ev.Symbol,
 		Name:      ev.Name,
@@ -133,6 +135,6 @@ func ParseSwapPairRegisterEvent(abi *abi.ABI, log *types.Log) (*SwapPairRegister
 	}
 	ev.Sponsor = ethcmm.BytesToAddress(log.Topics[1].Bytes())
 	ev.ContractAddr = ethcmm.BytesToAddress(log.Topics[2].Bytes())
-
+	ev.BEP20ContractAddr = ethcmm.BytesToAddress(log.Topics[3].Bytes())
 	return &ev, nil
 }

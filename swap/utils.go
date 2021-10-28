@@ -103,8 +103,8 @@ func abiEncodeFillBSC2ETHSwap(ethTxHash ethcom.Hash, erc20Addr ethcom.Address, t
 	return data, nil
 }
 
-func abiEncodeCreateSwapPair(registerTxHash ethcom.Hash, erc20Addr ethcom.Address, name, symbol string, decimals uint8, abi *abi.ABI) ([]byte, error) {
-	data, err := abi.Pack("createSwapPair", registerTxHash, erc20Addr, name, symbol, decimals)
+func abiEncodeCreateSwapPair(registerTxHash ethcom.Hash, erc20Addr ethcom.Address, bep20Addr ethcom.Address, name, symbol string, decimals uint8, abi *abi.ABI) ([]byte, error) {
+	data, err := abi.Pack("createSwapPair", registerTxHash, erc20Addr, bep20Addr, name, symbol, decimals)
 	if err != nil {
 		return nil, err
 	}
@@ -169,10 +169,10 @@ func queryDeployedBEP20ContractAddr(erc20Addr ethcom.Address, bscSwapAgentAddr e
 	if err != nil {
 		return ethcom.Address{}, err
 	}
-	if len(txRecipient.Logs) != 2 {
+	if len(txRecipient.Logs) != 1 {
 		return ethcom.Address{}, fmt.Errorf("Expected tx logs length in recipient is 2, actual it is %d", len(txRecipient.Logs))
 	}
-	createSwapEvent, err := swapAgentInstance.ParseSwapPairCreated(*txRecipient.Logs[1])
+	createSwapEvent, err := swapAgentInstance.ParseSwapPairCreated(*txRecipient.Logs[0])
 	if err != nil || createSwapEvent == nil {
 		return ethcom.Address{}, err
 	}

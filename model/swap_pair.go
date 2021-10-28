@@ -34,6 +34,7 @@ type SwapPairRegisterTxLog struct {
 
 	Sponsor   string `gorm:"not null"`
 	ERC20Addr string `gorm:"not null"`
+	BEP20Addr string `gorm:"not null"`
 	Symbol    string `gorm:"not null;index:swappair_register_tx_log_symbol"`
 	Name      string `gorm:"not null"`
 	Decimals  int    `gorm:"not null"`
@@ -67,6 +68,7 @@ type SwapPairCreatTx struct {
 	SwapPairCreatTxHash    string `gorm:"unique;not null"`
 
 	ERC20Addr string `gorm:"not null"`
+	BEP20Addr string `gorm:"not null"`
 
 	Symbol   string `gorm:"not null;index:swap_pair_creat_tx_symbol"`
 	Name     string `gorm:"not null"`
@@ -89,7 +91,7 @@ type SwapPairStateMachine struct {
 	Status common.SwapPairStatus `gorm:"not null;index:swap_pair_sm_status"`
 
 	ERC20Addr string `gorm:"not null"`
-	BEP20Addr string
+	BEP20Addr string `gorm:"not null"`
 
 	Sponsor  string `gorm:"not null"`
 	Symbol   string `gorm:"not null;index:swap_pair_sm_symbol"`
